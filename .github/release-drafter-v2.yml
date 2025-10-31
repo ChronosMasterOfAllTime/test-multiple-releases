@@ -1,5 +1,6 @@
 name-template: 'v2.$RESOLVED_VERSION 🌈'
 tag-template: 'v2.$RESOLVED_VERSION'
+version-template: '$MINOR.$PATCH'
 categories:
   - title: '🚀 Features'
     labels:
