@@ -1,0 +1,36 @@
+name: Release Drafter
+
+on:
+  push:
+    branches:
+      - v2
+      - v3
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+permissions:
+  contents: read
+
+jobs:
+  update_release_draft:
+    permissions:
+      contents: write
+      pull-requests: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Determine config file
+        id: config
+        run: |
+          if [[ "${{ github.ref }}" == "refs/heads/v2" ]] || [[ "${{ github.base_ref }}" == "v2" ]]; then
+            echo "config-name=release-drafter-v2.yml" >> $GITHUB_OUTPUT
+          elif [[ "${{ github.ref }}" == "refs/heads/v3" ]] || [[ "${{ github.base_ref }}" == "v3" ]]; then
+            echo "config-name=release-drafter-v3.yml" >> $GITHUB_OUTPUT
+          else
+            echo "config-name=release-drafter.yml" >> $GITHUB_OUTPUT
+          fi
+      
+      - uses: release-drafter/release-drafter@v5
+        with:
+          config-name: ${{ steps.config.outputs.config-name }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
