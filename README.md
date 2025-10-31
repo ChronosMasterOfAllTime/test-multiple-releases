@@ -46,10 +46,22 @@ The repository is configured to manage separate releases for `v2` and `v3` branc
 
 ## PR Labels
 
+### For v2 and v3 branches
+
+Use these labels on your PRs to control versioning:
+- `minor`: Bump minor version (v2/v3.x.0)
+- `patch`: Bump patch version (v2/v3.0.x) - default
+
+Note: Major version bumping is not available for v2/v3 branches as the major version is fixed by the branch name.
+
+### For other branches
+
 Use these labels on your PRs to control versioning:
 - `major`: Bump major version (x.0.0)
 - `minor`: Bump minor version (0.x.0)
 - `patch`: Bump patch version (0.0.x) - default
+
+### For all branches
 
 Use these labels to categorize changes:
 - `feature`, `enhancement`: Listed under Features
