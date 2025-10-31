@@ -12,10 +12,14 @@ The repository is configured to manage separate releases for `v2` and `v3` branc
 - **v2 branch**: Uses `.github/release-drafter-v2.yml` configuration
   - Tags: `v2.x.x`
   - Release name template: `v2.$RESOLVED_VERSION 🌈`
+  - `commitish: v2` targets the v2 branch for releases
+  - `filter-by-commitish: true` ensures v2 releases don't interfere with v3
   
 - **v3 branch**: Uses `.github/release-drafter-v3.yml` configuration
   - Tags: `v3.x.x`
   - Release name template: `v3.$RESOLVED_VERSION 🚀`
+  - `commitish: v3` targets the v3 branch for releases
+  - `filter-by-commitish: true` ensures v3 releases don't interfere with v2
 
 ## How it works
 
@@ -30,6 +34,12 @@ The repository is configured to manage separate releases for `v2` and `v3` branc
    - Categorized changes (Features, Bug Fixes, Maintenance)
    - Version bumping based on PR labels
    - Contributor attribution
+
+**Important**: The `filter-by-commitish: true` and `commitish` parameters in both v2 and v3 configurations work together to ensure proper branch isolation:
+- `commitish: v2` / `commitish: v3` specifies which branch each release targets
+- `filter-by-commitish: true` filters releases to only those from the same branch
+
+This prevents the v2 and v3 draft releases from overwriting each other when workflows are triggered on different branches.
 
 ## Usage
 
