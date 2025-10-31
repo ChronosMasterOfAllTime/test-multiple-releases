@@ -1,6 +1,7 @@
 name-template: 'v3.$RESOLVED_VERSION 🚀'
 tag-template: 'v3.$RESOLVED_VERSION'
 version-template: '$MINOR.$PATCH'
+filter-by-commitish: true
 categories:
   - title: '🚀 Features'
     labels:
