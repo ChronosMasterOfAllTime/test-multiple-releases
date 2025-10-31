@@ -22,6 +22,7 @@ The repository is configured to manage separate releases for `v2` and `v3` branc
 1. The GitHub Actions workflow (`.github/workflows/release-drafter.yml`) triggers on:
    - Pushes to `v2` or `v3` branches
    - Pull requests targeting these branches
+   - Manual trigger via workflow_dispatch (from GitHub Actions UI)
 
 2. The workflow automatically selects the appropriate configuration based on the target branch
 
@@ -31,6 +32,18 @@ The repository is configured to manage separate releases for `v2` and `v3` branc
    - Contributor attribution
 
 ## Usage
+
+### Manual Trigger
+
+You can manually trigger the Release Drafter workflow from the GitHub Actions UI:
+
+1. Go to the "Actions" tab in the GitHub repository
+2. Select "Release Drafter" from the workflows list
+3. Click "Run workflow" button
+4. Select the branch you want to run it on (v2, v3, or any other branch)
+5. Click "Run workflow" to execute
+
+The workflow will use the appropriate configuration based on the selected branch.
 
 ### Creating releases for v2
 
