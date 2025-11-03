@@ -1,6 +1,6 @@
 name-template: 'v3.$RESOLVED_VERSION 🌈'
 tag-template: 'v3.$RESOLVED_VERSION'
-version-template: '$MAJOR.$MINOR'
+version-template: '$MINOR.$PATCH'
 filter-by-commitish: true
 commitish: v3
 categories:
@@ -20,13 +20,13 @@ categories:
 change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
 change-title-escapes: '\<*_&'
 version-resolver:
-  major:
-    labels:
-      - 'minor-release'
   minor:
     labels:
+      - 'minor-release'
+  patch:
+    labels:
       - 'patch-release'
-  default: minor
+  default: patch
 template: |
   ## Changes (v3 branch)
 

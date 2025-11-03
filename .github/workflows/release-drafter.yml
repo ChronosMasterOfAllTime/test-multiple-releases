@@ -29,8 +29,8 @@ jobs:
           else
             echo "config-name=release-drafter.yml" >> $GITHUB_OUTPUT
           fi
-      
-      - uses: release-drafter/release-drafter@v6
+
+      - uses: ChronosMasterOfAllTime/release-drafter@honor_version_template
         with:
           config-name: ${{ steps.config.outputs.config-name }}
         env:
