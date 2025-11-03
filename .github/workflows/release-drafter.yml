@@ -30,7 +30,7 @@ jobs:
             echo "config-name=release-drafter.yml" >> $GITHUB_OUTPUT
           fi
 
-      - uses: ChronosMasterOfAllTime/release-drafter@honor_version_template
+      - uses: release-drafter/release-drafter@v6
         with:
           config-name: ${{ steps.config.outputs.config-name }}
         env:
